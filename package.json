@@ -1,0 +1,25 @@
+{
+  "name": "plog",
+  "version": "1.0.0",
+  "description": "My Simple Static Blog site",
+  "repository": {
+    "type": "git",
+    "url": "https://codeberg.org/porrrq/plog.git"
+  },
+  "license": "ISC",
+  "author": "Punyawat P.",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./build.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.2.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.7"
+  }
+}
