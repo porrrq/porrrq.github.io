@@ -21,21 +21,90 @@
 --gruber-darker-niagara-darker-1 : #565f73;
 --gruber-darker-niagara   : #96a6c8;
 --gruber-darker-wisteria  : #9e95c7;
+--width: 720px;
+--font-scale: 1em;
+--font-family: "PT Sans", sans-serif;
+--font-weight-regular: 400;
 }
-
+html {
+  scrollbar-gutter: stable;
+}
 /* General Style */
 
+h1, h2, h3, h4, h5, h5 {
+  text-align: center;
+}
+
 body {
-  background-color: var(--gruber-darker-bg-darker-1);
+  background-color: var(--gruber-darker-bg);
   color: var(--gruber-darker-fg);
+  padding: 20px;
+  max-width: var(--width);
+  margin: auto;
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+header {
+  margin-bottom: 30px;
+  font-family: "Fira Code", sans-serif;
 }
 
 .webTitle{
-  color: var(--gruber-darker-fg-lighter-1);
+  color: var(--gruber-darker-quartz);
   text-decoration: none;
+  font-size: 1.5em;
+}
+
+h1 {
+  color: var(--gruber-darker-fg-lighter-2);
 }
 
 nav a{
-  color: var(--gruber-darker-niagara);
+
+  margin-right: 1.5rem;
+  font-size: var(--font-scale);
+}
+a {
   text-decoration: none;
+  color: var(--gruber-darker-niagara);
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--gruber-darker-wisteria);
+}
+nav p {
+  display: flex;
+}
+
+/* --------------- BLOG TABLE --------------- */
+
+.postDateColumn {
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.9rem;
+  padding-right: 1rem;
+  min-width: calc(12ch)
+}
+.postTitleColumn{
+  padding-right:2em;
+}
+.postTagColumn a, .tagList a {
+  font-style: italic;
+  color: var(--gruber-darker-quartz) !important;
+}
+.blogPostListTable td {
+  vertical-align: top;
+}
+
+img {
+  max-height: 400px;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.tagList {
+  text-align: center;
 }

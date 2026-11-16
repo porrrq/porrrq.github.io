@@ -1,22 +1,17 @@
 ---
-title: Punyawat Pungphomin
-description: 
+title: Hi!
+description: blog
 ---
 
+My name is Por (ป้อ). I have no idea how you found this website, but **I hope you enjoy my writing**.
 
-# Welcome to my blog!
+## Manifesto
+**All of the content is written by me** (I'm avoiding using AI to frame my thoughts!), but since I'm Thai and English is my second language, I use AI to help me avoid some grammatical mistakes and phrases that sound weird to natives. Anyway, **I will try my best and aim to use this platform as a sandbox for my writing and practicing English**.
 
-Ea minim id adipisicing ad ea aute. Pariatur magna aute dolore voluptate aliquip in consequat irure dolore. Nisi laboris nisi ullamco laborum fugiat eiusmod exercitation esse duis duis consequat voluptate. Adipisicing qui fugiat mollit exercitation enim commodo. Mollit consequat adipisicing exercitation Lorem duis aliqua. Quis excepteur exercitation velit non commodo officia et anim ea est id sint. Nisi culpa cillum incididunt consequat est.
+## Miscellaneous
++ If you are looking for **my backround**, please visit the [about](#about) page.
++ This site is one of my **side-projects**; all of the code, including all posts in `.md`, is hosted at 
+  <a href="https://codeberg.org/porrrq/plog" target="_blank">this Codeberg repo</a>
 
-Aliqua consequat laboris veniam do excepteur enim. Commodo dolor esse consequat consequat in in excepteur eiusmod eu consequat magna ad ullamco. Commodo nostrud consectetur laboris veniam ea reprehenderit dolor nisi excepteur aliqua sunt. Veniam adipisicing nisi enim veniam cupidatat. Consequat exercitation enim Lorem dolore consequat qui tempor sit do. Nostrud quis nisi irure consequat duis magna. Magna minim consectetur ea cupidatat pariatur consectetur cupidatat cupidatat esse veniam duis cupidatat dolor.
+<hr>
 
-Qui aliquip culpa nulla ad velit ex sunt incididunt ut fugiat dolor cillum ullamco cillum. Labore quis enim pariatur dolor proident. Esse cillum ut duis pariatur enim enim pariatur deserunt exercitation excepteur voluptate proident.
-
-Eu exercitation irure ea culpa proident nisi. Eiusmod ut occaecat ipsum dolore occaecat ex cupidatat cupidatat elit Lorem mollit reprehenderit. Culpa consequat amet culpa enim veniam eiusmod id sit nisi qui commodo adipisicing.
-
-
-<style>
-  h1 {
-    color: red;
-  }
-</style>

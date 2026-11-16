@@ -14,11 +14,14 @@ const PAGE_DIR = "./pages/"
 const CONTENT_DIR = './pages/posts/';
 const DIST = './dist/';
 const SITE_DATA_JSON = 'siteData.json';
+const DIRECTORY_DIR = 'directory.json';
+
+const directory = {};
 
 // Delete /dist
 fs.rmSync(DIST, {recursive: true, force: true});
 // Create new /dist
-fs.mkdirSync('./dist/pages/posts/', { recursive: true });
+fs.mkdirSync('./dist/');
 
 const isFieldEmpty = (value) => {
     if (value === undefined || value === null) return true;
@@ -31,9 +34,11 @@ const isFieldEmpty = (value) => {
 const posts = fs.readdirSync(CONTENT_DIR).filter(file => file.endsWith('.md'));
 const validPosts = [];
 const invalidPosts = [];
-let postsListpageHTML = "<table>";
-
-const dateFormat = 
+const formatDate = new Intl.DateTimeFormat('en-GB', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+})
 
 posts.forEach(file => {
     const postPath = path.join(CONTENT_DIR,file);
@@ -57,26 +62,36 @@ posts.forEach(file => {
 
     const dateStr = data.date.toISOString().split('T')[0];
     const rawTitle = data.title;
-    const formattedTitle = rawTitle.toLowerCase().replace(/\s+/g, '-');
+    const formattedTitle = rawTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s]/gi, '');
     const slug = `${dateStr}_${formattedTitle}`;
+    const formattedDate = formatDate.format(data.date).replace(/(\w{3}) (\d{4})$/, "$1, $2")
+    
+    // Creat `related section`
+    let tags = "";
+    data.tags.map(tag => {
+        tags += `<span><a class="tag" href="#blog?tag=${tag}">${tag}</a> · </span>`
+    })
+
+    htmlContent = `<h1>${data.title}</h1><p><i><time datetime="${data.date}">${formattedDate}</time></i></p>` + 
+                    htmlContent + 
+                    `<div class="tagList">
+                        Related <br>
+                        ${tags.replace(/ · <\/span>$/,"</span>")}
+                    </div>`
+    htmlContent = `<div class="blogPost">${htmlContent}</div>`
 
     validPosts.push({
         slug,
         title: data.title,
         date: data.date,
+        formattedDate: formattedDate,
         tags: data.tags,
         description: data.description,
         htmlContent
     })
-    // Craete Blog List Page
-    postsListpageHTML += `
-        <tr>
-            <td>${</td>
-            <td></td>
-        </tr>
-    `
-
+    
 })
+
 
 if (invalidPosts.length > 0) {
     console.error('\n BUILD FIELD: Found invalid markdown metadata in the following files:');
@@ -106,7 +121,7 @@ pages.forEach(file => {
         invalidPages.push({ file, invalidFields});
         return;
     }
-    let htmlContent = marked(content);
+    let htmlContent = `<div class="${file.slice(0,-3)}-container"><h1>${data.title}</h1>` + marked(content) + `</div>`;
     const slug = file.toString().slice(0,-3);
     validPages.push({
         slug,
@@ -114,7 +129,6 @@ pages.forEach(file => {
         description: data.description,
         htmlContent
     })
-
 })
 
 if (invalidPages.length > 0) {
@@ -127,19 +141,76 @@ if (invalidPages.length > 0) {
     process.exit(1);
 }
 
-
+// sort blog by date
 validPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+
+// Create `most recent` and `blog post` list
+let postsListpageHTML = "<div class='blogPostListTable'><table><tbody>";
+let mostRecentPostTable = "<div class='most-recent-container'><h2>Most Recent Posts</h2><table><tr>";
+
+const loopMaxForMostRecent = 5;
+let i = 0;
+validPosts.forEach(post => {
+    //append most recent
+    postsListpageHTML += `<tr>
+    <td class="postDateColumn">${post.formattedDate}</td>
+    <td class="postTitleColumn"><a href="#${post.slug}">${post.title}</a></td>
+    `
+    post.tags.forEach(tag => {
+        postsListpageHTML += `<td class="postTagColumn ${tag}"><a href="#blog?tag=${tag}">${tag}</a></td>\n`
+    })
+    postsListpageHTML += `</tr>`;
+
+    //append blog list
+    if (i < loopMaxForMostRecent) {
+        mostRecentPostTable += `<tr>
+    <td class="postDateColumn">${post.formattedDate}</td>
+    <td class="postTitleColumn"><a href="#${post.slug}">${post.title}</a></td>
+    </tr>
+    `
+        i += 1;
+    }
+})
+postsListpageHTML += '</tbody></table></div>'
+mostRecentPostTable += '</tbody></table></div>'
+
+validPages.push({
+    slug: "blog",
+    title: "blog",
+    description: "blog",
+    htmlContent: postsListpageHTML
+})
+const homePage = validPages.find(page => page.slug == "home");
+let homePageHTML = homePage.htmlContent;
+console.log(typeof homePageHTML)
+homePageHTML += mostRecentPostTable;
+homePage.htmlContent = homePageHTML;
+
 
 const siteData = {
     "pages": validPages,
     "posts": validPosts
 }
 
+// Creating `directory` file
+for (const [type, arr] of Object.entries(siteData)) {
+    arr.map((dic, index) => {
+        const slug = dic.slug
+        directory[slug] = {
+            "type": type,
+            "index": index
+        }
+    })
+}
+
 fs.writeFileSync(path.join('./src/',SITE_DATA_JSON), JSON.stringify(siteData));
+fs.writeFileSync(path.join('./src/',DIRECTORY_DIR), JSON.stringify(directory));
 
 // Add Static Content (./src)
 fs.cpSync('./src', './dist/src/', { recursive: true});
 fs.cpSync('./public','./dist/public/', { recursive: true});
+fs.cpSync('index.html', './dist/index.html');
 
 console.log("DONE!");
 

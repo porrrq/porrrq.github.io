@@ -1,34 +1,55 @@
-import posts from './posts.json' with { type: 'json'};
+import siteData from './siteData.json' with { type: 'json'};
+import directory from './directory.json' with { type: 'json'};
 
-let html = "<table><tbody>"
-posts.forEach(post => {
-    const date = new Date(post.date);
-    const formatDate = new Intl.DateTimeFormat('en-GB', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    })
+const app = document.querySelector("#app");
 
-   html += `<tr><td>${formatDate.format(date).replace(/(\w{3}) (\d{4})$/, "$1, $2")}</td><td>${post.title}</td></tr>`;
-}) 
-html += "</tbody></table>"
-document.getElementById("app").innerHTML= html;
-
-const metaDescription = document.querySelector('meta[name="description');
+// const metaDescription = document.querySelector('meta[name="description');
 
 const route = async () => {
-    const URL = window.location.pathname.slice(1);
-    const contentFile = index[URL] || index["404"];
-    const { data: frontmatter, content: markdownContent } = grayMatter(contentFile);
+    const URL = window.location.hash.slice(1);
+    
+    const path = URL.match(/^[^\?]+/)?.[0] ?? "home";
+    const tagParam = URL.match(/\?\S+/)?.[0];
+    
+    const type = directory[path]?.type ?? directory["404"].type;
+    const index = directory[path]?.index ?? directory["404"].index;
+    
+    let html = siteData[type][index].htmlContent;
+    app.innerHTML = html;
+    
+    if (tagParam && path == "blog") {
+        const blogPostListTable = document.querySelector(".blogPostListTable");
+        const tag = tagParam.match(/(?<=\=)\S+$/)?.[0]
+        const rows = document.querySelectorAll(`tr:not(:has(td.${tag}))`);
 
-    // Convert content to HTML
-    const htmlContent = marked.parse(htmlContent);
+        const tagTitle = document.createElement("h1")
+        tagTitle.textContent = `${tag}`;
+        console.log(blogPostListTable)
+        
+        blogPostListTable.prepend(tagTitle);
+
+        rows.forEach(row => {
+            row.style.display = "none";
+        })
+    }
+    
+    
+    
+    // Else (Blog Post)
+    // else {
+    //     const post = siteData.posts.find(post => post.slug == URL);
+    //     app.innerHTML =post.htmlContent; 
+    // }
+
+
     
     // Set Meta Data
-    document.title = frontmatter.title || "Untitiled Page";
-    metaDescription.setAttribute("content", frontmatter.description);
+    // document.title = frontmatter.title || "Untitiled Page";
+    // metaDescription.setAttribute("content", frontmatter.description);
 
     // Replace HTML
 }
 
-// window.onpopstate = route;
+
+window.addEventListener('DOMContentLoaded', route);
+window.addEventListener('hashchange', route);
