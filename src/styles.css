@@ -2,14 +2,14 @@
 --width: 720px;
 --font-scale: 1em;
 --font-family-default: verdana, sans-serif;
---font-family-monospace: monospace;
+--font-family-monospace: consolas, monospace;
 }
 html {
   scrollbar-gutter: stable;
 }
 /* General Style */
 
-h1, h2, h3, h4, h5, h5 {
+h1 {
   text-align: center;
 }
 
@@ -54,4 +54,33 @@ header {
 }
 .tags {
   display: none;
+}
+
+/* BLOG itself */
+.blogPost p:has(time) {
+  text-align: center;
+  margin-top: 0;
+
+}
+
+.blogPost p:has(time)::after {
+  content: "";
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  margin-bottom: 2em;
+
+}
+.blogPost h1 {
+  margin-bottom: 0;
+}
+
+.tagList {
+  text-align: center;
+}
+
+time {
+  font-family: var(--font-family-monospace);
 }
