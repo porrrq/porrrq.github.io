@@ -3,7 +3,7 @@ title: About me
 description: about me
 ---
 
-![A picture of me](../public/me.webp)
+![A picture of me](/public/me.webp)
 
 
 
