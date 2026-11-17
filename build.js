@@ -146,34 +146,30 @@ validPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 
 // Create `most recent` and `blog post` list
-let postsListpageHTML = "<div class='blogPostListTable'><table><tbody>";
-let mostRecentPostTable = "<div class='most-recent-container'><h2>Most Recent Posts</h2><table><tr>";
+let postsListpageHTML = "<div class='blog-posts-container'><ul>";
+let mostRecentPostTable = "<section><h2>Most Recent Posts</h2><div class='most-recent-blog-posts-container'><ul>";
 
 const loopMaxForMostRecent = 5;
 let i = 0;
 validPosts.forEach(post => {
     //append most recent
-    postsListpageHTML += `<tr>
-    <td class="postDateColumn">${post.formattedDate}</td>
-    <td class="postTitleColumn"><a href="#${post.slug}">${post.title}</a></td>
-    `
-    post.tags.forEach(tag => {
-        postsListpageHTML += `<td class="postTagColumn ${tag}"><a href="#blog?tag=${tag}">${tag}</a></td>\n`
-    })
-    postsListpageHTML += `</tr>`;
-
-    //append blog list
+    const append = `<li class="data-tags">
+        <span class="date"><i><time datetime="${post.date}">${post.formattedDate}</time></i></span>
+        <span class="title"><a href="#${post.slug}">${post.title}</a></span>
+    `;
+    postsListpageHTML += append + `<span class="tags">`;
     if (i < loopMaxForMostRecent) {
-        mostRecentPostTable += `<tr>
-    <td class="postDateColumn">${post.formattedDate}</td>
-    <td class="postTitleColumn"><a href="#${post.slug}">${post.title}</a></td>
-    </tr>
-    `
-        i += 1;
+        mostRecentPostTable += append + `</li>`;
+        i++
     }
+    
+    post.tags.forEach(tag => {
+        postsListpageHTML += `<a class="${tag}" href="#blog?tag=${tag}">${tag}</a>\n`
+    })
+    postsListpageHTML += `</span></li>`;
 })
-postsListpageHTML += '</tbody></table></div>'
-mostRecentPostTable += '</tbody></table></div>'
+postsListpageHTML += '</div>'
+mostRecentPostTable += '</div></section>'
 
 validPages.push({
     slug: "blog",
