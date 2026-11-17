@@ -11,7 +11,7 @@ tags: [Technology, Personal]
 
 The topics are gonna vary, since I'm a graduated *Fee-nánce* student interested in CS, web development, logic & problem solving, as well as philosophy and mindfulness. 
 
-![Finance-starter-pack](../../public/finance-starter-pack.webp)
+![Finance-starter-pack](/public/finance-starter-pack.webp)
 
 ## <a href="https://bearblog.dev/" target="_blank">ʕ•ᴥ•ʔ Bear Blog</a> is my inspiration
 
@@ -31,7 +31,7 @@ The workflow is relatively simple:
 
 1. Write all blog posts in `.md`
 2. Let JavaScript build an index and convert them to HTML content
-3. Use *Codeberg pages* and *Codeberg actions* to host and automate the building process.
+3. Use *Github pages* and *Github actions* to host and automate the building process.
 
 That's it! It's a simple static site generation workflow.
 
@@ -56,7 +56,6 @@ So, I decided to create some rules:
 That's all.
 
 ![javascript-framework-meme](https://i.programmerhumor.io/2024/06/programmerhumor-io-java-memes-javascript-memes-1bd1e18ee6cab30.jpe)
-
 
 
 ## Result
