@@ -10,7 +10,7 @@ My name is Por (ป้อ, /pɔː/). I have no idea how you found this website, 
 
 ## Miscellaneous
 + If you are looking for **my backround**, please visit the [about](#about) page.
-+ This site is one of my **side-projects**; all of the code, including all posts in `.md`, is hosted at 
++ This site is one of my **side projects**; all of the code, including all posts in `.md`, is hosted at 
   <a href="https://codeberg.org/porrrq/plog" target="_blank">this Codeberg repo</a>
 
 <hr>
