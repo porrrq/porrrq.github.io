@@ -3,13 +3,23 @@
 --font-scale: 1em;
 --font-family-default: verdana, sans-serif;
 --font-family-monospace: consolas, monospace;
+
+--bg-color: #181818;
+--fg-color:	#e4e4ef;
+--acc1-color: #c9ab25;
+--acc2-color:	#73c936;
+--acc3-color:	#96a6c8;
+--acc4-color:	#c73c3f;
+
 }
 html {
   scrollbar-gutter: stable;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
 }
 /* General Style */
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
@@ -17,7 +27,7 @@ img {
   max-height: 400px;
   max-width: 75%;
   display: block;
-  margin: auto;
+  margin: 1em auto;
 }
 
 body {
@@ -34,8 +44,20 @@ header {
 }
 
 .webTitle{
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 1.5em;
+  color: var(--acc1-color) !important;
+}
+a{
+  text-decoration: none;
+  color: var(--acc3-color);
+}
+a:hover {
+  color: var(--acc2-color);
+  text-decoration: underline;
+}
+nav a {
+    margin-right: 20px;
 }
 
 /* --------------- BLOG TABLE --------------- */
@@ -60,17 +82,15 @@ header {
 .blogPost p:has(time) {
   text-align: center;
   margin-top: 0;
-
 }
 
 .blogPost p:has(time)::after {
   content: "";
-  margin: auto;
+  margin: 1rem auto;
   display: block;
   width: 100%;
   height: 1px;
   background-color: gray;
-  margin-bottom: 2em;
 
 }
 .blogPost h1 {

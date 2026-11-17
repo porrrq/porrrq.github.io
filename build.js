@@ -58,8 +58,10 @@ posts.forEach(file => {
         return;
     }
     
-    let htmlContent = marked(content);
+    // sort tags
+    data.tags.sort()
 
+    let htmlContent = marked(content);
     const dateStr = data.date.toISOString().split('T')[0];
     const rawTitle = data.title;
     const formattedTitle = rawTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\s]/gi, '');
