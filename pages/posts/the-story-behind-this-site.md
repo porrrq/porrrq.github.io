@@ -11,7 +11,7 @@ tags: [Technology, Personal]
 
 The topics are gonna vary, since I'm a graduated *Fee-nánce* student interested in CS, web development, logic & problem solving, as well as philosophy and mindfulness. 
 
-![Finance-starter-pack](/public/finance-starter-pack.webp)
+![Finance-starter-pack](../../public/finance-starter-pack.webp)
 
 ## <a href="https://bearblog.dev/" target="_blank">ʕ•ᴥ•ʔ Bear Blog</a> is my inspiration
 
