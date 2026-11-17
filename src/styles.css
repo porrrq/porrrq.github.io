@@ -85,9 +85,12 @@ nav a {
   display: flex;
 }
 
-.blog-posts li .date {
-  flex: 0 0 12ch;
+.date {
+  margin-right: 0.5rem;
+  min-width: 12ch
 }
+
+
 .tags {
   display: none;
 }
