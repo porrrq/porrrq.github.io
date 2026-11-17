@@ -18,15 +18,14 @@ const route = async () => {
     app.innerHTML = html;
     
     if (tagParam && path == "blog") {
-        const blogPostListTable = document.querySelector(".blogPostListTable");
+        const blogPostsContainer = document.querySelector(".blog-posts-container");
         const tag = tagParam.match(/(?<=\=)\S+$/)?.[0]
-        const rows = document.querySelectorAll(`tr:not(:has(td.${tag}))`);
+        const rows = document.querySelectorAll(`.data-tags:not(:has(a.${tag}))`);
 
         const tagTitle = document.createElement("h1")
         tagTitle.textContent = `${tag}`;
-        console.log(blogPostListTable)
         
-        blogPostListTable.prepend(tagTitle);
+        blogPostsContainer.prepend(tagTitle);
 
         rows.forEach(row => {
             row.style.display = "none";

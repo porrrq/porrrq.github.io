@@ -13,6 +13,13 @@ h1, h2, h3, h4, h5, h5 {
   text-align: center;
 }
 
+img {
+  max-height: 400px;
+  max-width: 75%;
+  display: block;
+  margin: auto;
+}
+
 body {
   padding: 20px;
   max-width: var(--width);
@@ -31,22 +38,20 @@ header {
   font-size: 1.5em;
 }
 
-
-
 /* --------------- BLOG TABLE --------------- */
-
-
-.blogPostListTable td {
-  vertical-align: top;
-}
-
-img {
-  max-height: 400px;
-  max-width: 75%;
+.blog-posts {
+  list-style-type: none;
+  padding: unset;
   display: block;
-  margin: auto;
 }
 
-.tagList {
-  text-align: center;
+.blog-posts li {
+  display: flex;
+}
+
+.blog-posts li .date {
+  flex: 0 0 12ch;
+}
+.tags {
+  display: none;
 }

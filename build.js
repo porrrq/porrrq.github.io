@@ -146,8 +146,8 @@ validPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 
 // Create `most recent` and `blog post` list
-let postsListpageHTML = "<div class='blog-posts-container'><ul>";
-let mostRecentPostTable = "<section><h2>Most Recent Posts</h2><div class='most-recent-blog-posts-container'><ul>";
+let postsListpageHTML = "<div class='blog-posts-container'><ul class='blog-posts'>";
+let mostRecentPostTable = "<section><h2>Most Recent Posts</h2><div class='most-recent-blog-posts-container'><ul class='blog-posts'>";
 
 const loopMaxForMostRecent = 5;
 let i = 0;
