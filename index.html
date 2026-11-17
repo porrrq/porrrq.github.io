@@ -12,6 +12,14 @@
     <title>Punyawat's blog</title>
     <meta name="title" content="Punyawat Pungphomin">
     <meta name="description" content>
+
+    <script> // fix path
+        if (window.location.hostname.includes('github.io') && !window.location.pathname.startsWith('/blog/')) {
+            const base = document.createElement('base');
+            base.href = '/blog/';
+            document.head.prepend(base);
+        }
+    </script>
 </head>
 <body>
     <header>
