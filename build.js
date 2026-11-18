@@ -17,6 +17,7 @@ const SITE_DATA_JSON = 'siteData.json';
 const DIRECTORY_DIR = 'directory.json';
 
 const directory = {};
+const allTags = new Set();
 
 // Delete /dist
 fs.rmSync(DIST, {recursive: true, force: true});
@@ -71,6 +72,9 @@ posts.forEach(file => {
     // Creat `related section`
     let tags = "";
     data.tags.map(tag => {
+        // Add tag to all tag list for `topics` pagge
+        allTags.add(tag)
+        // Create an element
         tags += `<span><a class="tag" href="#blog?tag=${tag}">${tag}</a> · </span>`
     })
 
@@ -146,6 +150,8 @@ if (invalidPages.length > 0) {
 // sort blog by date
 validPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+// create sorted array of allTags
+const sortedAllTags = [...allTags].sort();
 
 // Create `most recent` and `blog post` list
 let postsListpageHTML = "<div class='blog-posts-container'><ul class='blog-posts'>";
@@ -179,11 +185,27 @@ validPages.push({
     description: "blog",
     htmlContent: postsListpageHTML
 })
+
+
+// Append `most recent posts` section to home page
 const homePage = validPages.find(page => page.slug == "home");
 let homePageHTML = homePage.htmlContent;
-console.log(typeof homePageHTML)
 homePageHTML += mostRecentPostTable;
 homePage.htmlContent = homePageHTML;
+
+// Create `topics` page
+let topicHTML = `<div class="topic-list-container"><ul>`;
+sortedAllTags.forEach( tag => {
+    topicHTML += `<li class="topic"><a href="#blog?tag=${tag}">${tag}</a></li>`
+})
+topicHTML += `</ul></div>`;
+// Push content
+validPages.push({
+    slug: "topic",
+    title: "topic",
+    description: "blog",
+    htmlContent: topicHTML
+})
 
 
 const siteData = {

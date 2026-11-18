@@ -1,18 +1,16 @@
 :root {
---width: 720px;
---font-scale: 1em;
---font-family-default: verdana, sans-serif;
---font-family-monospace: consolas, monospace;
-
---bg-color: white;
---fg-color:	black;
---a-color: DodgerBlue;
---a-hover-color: DarkBlue;
---a-visied-color: MediumSlateBlue;
---h1-color:	Navy;
---blockquote-bg-color: FloralWhite;
---blockquote-border-color: Linen;
-
+  --width: 720px;
+  --font-scale: 1em;
+  --font-family-default: verdana, sans-serif;
+  --font-family-monospace: consolas, monospace;
+  --bg-color: white;
+  --fg-color:	black;
+  --a-color: DodgerBlue;
+  --a-hover-color: DarkBlue;
+  --a-visied-color: MediumSlateBlue;
+  --h1-color:	Navy;
+  --blockquote-bg-color: FloralWhite;
+  --blockquote-border-color: Linen;
 }
 html {
   scrollbar-gutter: stable;
@@ -73,6 +71,10 @@ nav a {
     font-weight: 600;
 }
 
+a:not(nav a):visited {
+  color: var(--a-visied-color)
+}
+
 
 /* --------------- BLOG TABLE --------------- */
 .blog-posts {
@@ -86,8 +88,8 @@ nav a {
 }
 
 .date {
-  margin-right: 0.5rem;
-  min-width: 12ch
+  margin-right: 0.5em;
+  min-width: 12ch;
 }
 
 
