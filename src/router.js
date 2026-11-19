@@ -42,6 +42,5 @@ const route = async () => {
     }
 }
 
-
 window.addEventListener('DOMContentLoaded', route);
 window.addEventListener('hashchange', route);
