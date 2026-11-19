@@ -1,10 +1,3 @@
-// This file is used for compile and prepare `innerHTML` element for each page
-// Both `pages` element (e.g., about, blog list) and each `blog` element
-// Each pages start with its title (h1)
-// Each blog start with its title (h1) and time element
-// The output is a dictionary with 2 keys including: pages and blogs
-// both contains an array store all of its article type
-
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');

@@ -130,3 +130,13 @@ blockquote {
   margin: 1rem;
   border-left: 1px solid var(--fg-color);
 }
+
+/* ABOUT PAGE */
+.about-basic-info-bar {
+ width: fit-content;
+ margin: -10px auto 0 auto;
+}
+
+.about-container h4, .about-container h5 {
+  text-align: left !important;
+} 
