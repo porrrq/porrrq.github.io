@@ -7,3 +7,6 @@ description: about me
 
 ## Punyawat Pungphomin
 <div class="about-basic-info-bar">Bangkok, Thailand | <a href="mailto:punyawat.pungphomin@gmail.com">punyawat.pungphomin@gmail.com</a> | <a href="https:/www.linkedin.com/in/punyawatp" target="_blank">LinkedIn</a></div>
+
+
+### Executive Summary

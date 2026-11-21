@@ -13,5 +13,3 @@ My name is Por (ป้อ, /pɔː/). I have no idea how you found this website, 
 + This site is one of my **side projects**; all of the code, including all posts in `.md`, is hosted at 
   <a href="https://github.com/porrrq/blog" target="_blank">this Github repo</a>
 
-<hr>
-
