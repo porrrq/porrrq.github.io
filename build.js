@@ -54,7 +54,7 @@ const genDirectoryJsonArray = () => {
                 let html = addContainer(marked(content),"post-body")
                 
                 // Create Title section automatically
-                let postTitleHead = `<div class="post-head"><h1>${data.title}</h1><p><i><time datetime="${data.date}">${formattedDate}</time></i></p></div>`
+                let postTitleHead = `<div class="post-head"><h1>${data.title}</h1><p><i><time datetime="${data.date}">${formattedDate}</time></i></p><hr></div>`
                 // Create related section automatically
                 let relatedSection = `<div class="related"><p>Related</p>`
                 data.tags.forEach((tag,index) => {
