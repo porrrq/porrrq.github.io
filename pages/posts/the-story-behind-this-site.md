@@ -18,6 +18,8 @@ The topics are gonna vary, since I'm a graduated *Fee-nánce* student interested
 **I had been exploring some sites (e.g., Medium, Blogger) and none of them felt appealing**. I want something simple that I can control. 
 One day I was scrolling through Facebook and I saw this <a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank">Karpathy's bearblog</a>. This site is particularly compelling as it showcases how simple a blog website can be.
 
+![Bearblog picture](../../public/karpathy.bearblog.dev_hacker-tube.webp)
+
 At first, I signed in and was about to start my blog. Then, out of nowhere, this thought just popped up:
 
 > Trying to make a blog website yourself is fun, isn't it?

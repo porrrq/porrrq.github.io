@@ -1,44 +1,53 @@
-import siteData from './siteData.json' with { type: 'json'};
 import directory from './directory.json' with { type: 'json'};
 
 const app = document.querySelector("#app");
-
 const metaDescription = document.querySelector('meta[name="description"]');
 const metaTitle = document.querySelector('meta[name="title"]');
 
-const route = async () => {
+
+const findElement = (path, directory) => {
+    return directory.find(a => a.slug == path) ?? directory.find(a => a.slug == "404")
+}
+
+const route = () => {
+    const params = {}
     const URL = window.location.hash.slice(1);
-    
-    const path = URL.match(/^[^\?]+/)?.[0] ?? "home";
-    const tagParam = URL.match(/\?\S+/)?.[0];
-    
-    const type = directory[path]?.type ?? directory["404"].type;
-    const index = directory[path]?.index ?? directory["404"].index;
-    
-    document.title = `${siteData[type][index].title} - Punyawat's blog`;
-    
-    metaDescription.setAttribute('content',siteData[type][index].description);
-    metaTitle.setAttribute('content',siteData[type][index].title);
+    const splittedURL = URL.split("?")
 
-    
-    
-    let html = siteData[type][index].htmlContent;
-    app.innerHTML = html;
-    
-    
-    if (tagParam && path == "blog") {
-        const blogPostsContainer = document.querySelector(".blog-posts-container");
-        const tag = tagParam.match(/(?<=\=)\S+$/)?.[0]
-        const rows = document.querySelectorAll(`.data-tags:not(:has(a.${tag}))`);
+    const path = splittedURL[0]
+    const queryParams = splittedURL?.[1]?.split("&") ?? []
+    queryParams.forEach( param => {
+        const pair = param.split("=")
+        params[pair[0]] = pair[1]
+    })
 
-        const tagTitle = document.createElement("h1")
-        tagTitle.textContent = `${tag}`;
+    console.log(path, params)
+
+    const element = findElement(path, directory)
+
+    document.title = `${element.title} - Punyawat's blog`
+    metaTitle.setAttribute("content", `${element.title} - Punyawat's blog`)
+    metaDescription.setAttribute("content", element.description)
+
+    let html = element.html
+    app.innerHTML = html
+    
+    // add ability to filter by tag 
+    if (path == "blog" && params.hasOwnProperty("tag")) {
+        const blogPostsContainer = document.querySelector(".blog-posts-container")
+        const rowsNotMatch = document.querySelectorAll(`.blog-posts-container li:not(:has(span.${params.tag}))`)
+        const displayTag = params.tag.replace(/^./, char => char.toUpperCase())
         
-        blogPostsContainer.prepend(tagTitle);
+        let tagTitle = document.createElement("h1")
+        tagTitle.innerText = displayTag
+        
+        blogPostsContainer.prepend(tagTitle)
+        
+        document.title = `${displayTag} - Punyawat's blog`
 
-        rows.forEach(row => {
-            row.style.display = "none";
-        })
+        rowsNotMatch.forEach( row => {
+            row.style.display = "none"
+        })   
     }
 }
 

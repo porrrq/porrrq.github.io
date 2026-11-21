@@ -9,6 +9,7 @@
   --a-hover-color: DarkBlue;
   --a-visied-color: MediumSlateBlue;
   --h1-color:	Navy;
+  --line-brack-color: gray;
   --blockquote-bg-color: FloralWhite;
   --blockquote-border-color: Linen;
 }
@@ -87,37 +88,34 @@ a:not(nav a):visited {
   display: flex;
 }
 
-.date {
-  margin-right: 0.5em;
+.blog-date {
   min-width: 12ch;
 }
 
-
-.tags {
+.blog-tags {
   display: none;
 }
 
 /* BLOG itself */
-.blogPost p:has(time) {
+.post-head p:has(time) {
   text-align: center;
-  margin-top: 0;
+  margin-top: -1.5em;
 }
 
-.blogPost p:has(time)::after {
+.post-head p:has(time)::after, .related::before {
   content: "";
   margin: 1rem auto;
   display: block;
   width: 100%;
   height: 1px;
-  background-color: gray;
-
+  background-color: var(--line-brack-color);
 }
-.blogPost h1 {
-  margin-bottom: 0;
-}
-
-.tagList {
+.related {
   text-align: center;
+  font-style: italic;
+}
+.related p {
+  margin-bottom: 0;
 }
 
 time {
