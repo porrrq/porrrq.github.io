@@ -56,7 +56,7 @@ const genDirectoryJsonArray = () => {
                 // Create Title section automatically
                 let postTitleHead = `<div class="post-head"><h1>${data.title}</h1><p><i><time datetime="${data.date}">${formattedDate}</time></i></p><hr></div>`
                 // Create related section automatically
-                let relatedSection = `<div class="related"><p>Related</p>`
+                let relatedSection = `<div class="related"><hr><p>Related</p>`
                 data.tags.forEach((tag,index) => {
                         if (index == data.tags.length-1) {
                                 relatedSection += `<span><a class="tag" href="#blog?tag=${tag.toLowerCase()}">${tag}</a></span>`
