@@ -203,3 +203,8 @@ blockquote {
 .about-container h4, .about-container h5 {
   text-align: left !important;
 } 
+
+.home-pic {
+  width: 200px !important;
+  clip-path: circle(50%);
+}
