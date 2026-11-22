@@ -1,6 +1,6 @@
 ---
 title: Affiliate Marketing Is Making Things Worse.
-description: Eeveryone is essentially a sale person nowadays.
+description: Everyone is essentially a sale person nowadays.
 date: 2026-11-22
 tags: [Consumerism, Ethics, Capitalism]
 ---

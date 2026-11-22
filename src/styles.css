@@ -1,49 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../public/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../public/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf");
+  font-style: italic;
+}
+
 
 :root {
   color-scheme: dark light;
   --width: 720px;
-  --font-scale: 1em;
   --font-family-default: verdana, sans-serif;
-  --font-family-serif: "Newsreader", serif;
+  --font-family-serif: "EB Garamond", serif;
   --font-family-monospace: "Consolas", monospace;
 
-  --bg-dark: hsl(216 100% 93%);
-  --bg: hsl(216 100% 99%);
-  --bg-light: hsl(216 100% 100%);
-  --text: hsl(244 100% 11%);
-  --text-muted: hsl(216 74% 31%);
-  --highlight: hsl(216 100% 100%);
-  --border: hsl(217 56% 56%);
-  --border-muted: hsl(217 80% 68%);
-  --primary: hsl(216 74% 31%);
-  --secondary: hsl(40 100% 13%);
-  --danger: hsl(7 51% 41%);
-  --warning: hsl(53 100% 15%);
-  --success: hsl(161 100% 17%);
-  --info: hsl(217 54% 44%);
+  /* Solarized CSS */
+  --base03 :  #002b36;
+  --base02 :  #073642;
+  --base01 :  #586e75;
+  --base00 :  #657b83;
+  --base0 :   #839496;
+  --base1 :   #93a1a1;
+  --base2 :   #eee8d5;
+  --base3 :   #fdf6e3;
+
+  --yellow :  #b58900;
+  --orange :  #cb4b16;
+  --red :     #dc322f;
+  --magenta : #d33682;
+  --violet :  #6c71c4;
+  --blue :    #268bd2;
+  --cyan :    #2aa198;
+  --green :   #859900;
+
+  --bg: var(--base3);
+  --bg-hl: var(--base2);
+  --primary-text: var(--base00);
+  --secondary-text: var(--base1);
+  --emphasize-text: var(--base01);
+  --link: var(--blue);
+  --link-visited: var(--violet);
+  --title: var(--magenta);
+  --nav-link: var(--emphasize-text);
+  --h1: var(--cyan);
+  --h2: var(--green);
+  --h3: var(--orange);
+  --hr: var(--yellow);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-dark: hsl(236 100% 5%);
---bg: hsl(226 100% 7%);
---bg-light: hsl(218 89% 11%);
---text: hsl(216 100% 100%);
---text-muted: hsl(216 78% 74%);
---highlight: hsl(217 55% 43%);
---border: hsl(216 74% 31%);
---border-muted: hsl(216 100% 20%);
---primary: hsl(217 100% 75%);
---secondary: hsl(39 69% 57%);
---danger: hsl(8 68% 66%);
---warning: hsl(52 59% 44%);
---success: hsl(152 45% 49%);
---info: hsl(217 80% 68%);
+    --bg: var(--base03);
+    --bg-hl: var(--base02);
+    --primary-text: var(--base0);
+    --secondary-text: var(--base01);
+    --emphasize-text: var(--base1);
   }
 }
 html {
   scrollbar-gutter: stable;
-  
 }
 
 body {
@@ -51,10 +68,10 @@ body {
   max-width: var(--width);
   margin: auto;
   font-family: var(--font-family-default);
-  line-height: 1.6;
+  line-height: 1.4;
   text-align: justify;
-  background-color: var(--bg-light);
-  color: var(--text);
+  background-color: var(--bg);
+  color: var(--primary-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,14 +81,25 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   font-family: var(--font-family-serif);
-  color: var(--secondary);
+  color: var(--h1);
+}
+
+h2 {
+  color: var(--h2);
+}
+
+h3 {
+  color: var(--h3);
+}
+h4, h5, h6 {
+  color: var(--hr);
 }
 
 .webTitle{
   font-size: 1.5em;
   font-style: bold;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--title) !important;
   text-decoration: none !important;
 }
 
@@ -94,7 +122,7 @@ header {
 }
 
 nav a {
-  color: var(--text-muted);
+  color: var(--nav-link);
   margin-right: 20px;
   font-weight: 600;
 }
@@ -103,10 +131,13 @@ nav a:hover {
 }
 a{
   text-decoration: none;
-  color: var(--info);
+  color: var(--link);
 }
 a:hover {
   text-decoration:underline;
+}
+a:not(.nav-link):visited {
+  color: var(--link-visited);
 }
 
 
@@ -153,15 +184,14 @@ a:hover {
 time {
   font-family: var(--font-family-monospace);
 }
-strong, em {
-  color: var(--success) !important;
+strong{
+  color: var(--emphasize-text) !important;
 }
 blockquote {
   font-style: italic;
   padding: 3px 20px;
   margin: 1rem;
-  border-left: 3px solid var(--border-muted);
-  background-color: var(--highlight);
+  background-color: var(--bg-hl);
 }
 
 /* ABOUT PAGE */
