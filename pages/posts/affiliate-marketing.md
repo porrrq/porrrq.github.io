@@ -28,7 +28,7 @@ If you are a money-hungry company and logically connect the dots, you will figur
 
 Note that we're ignoring *in-store sales strategy* such as find the exact shelf location that maximizes revenue for a particular product or product bundling and decoy pricing.
 
-### The issues
+### The issue
 
 Let's say that the optimal level of consumption is constant and people end up consuming excessively as a consequence.
 ![excessive consumption](../../public/affiliate-markeing-consumption-graph/excessive-consumption.svg)
