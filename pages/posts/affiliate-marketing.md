@@ -5,7 +5,7 @@ date: 2026-11-22
 tags: [Consumerism, Ethics, Capitalism]
 ---
 
-**Noted that this entire pieces*is not backed by any research*, it's purely my opinion and hypothesis just for fun.**
+##### *Noted that this entire pieces is not backed by any research,<br>it's purely my opinion and hypothesis just for fun.*
 
 ## What's a 'natural' process of buying things
 
