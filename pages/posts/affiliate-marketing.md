@@ -10,9 +10,11 @@ tags: [Consumerism, Ethics, Capitalism]
 ## What's a 'natural' process of buying things
 
 The most straightforward and simplified process of buying things goes like this:
+
 1. You think about what you want
 2. Go to a store and find what you want
 3. If it exists, buy it; if not, go home.
+
 Inherently, the first step would either start with 'need' (e.g., food) or 'want' (e.g., you see your friend use new iPhone 67 pro max limited master ultimate edition and you think you want it) and both are fine, although the latter is somewhat of a marketing strategy used by money-hungry companies nowadays.
 
 ## Let's add some un-natural forces to it
