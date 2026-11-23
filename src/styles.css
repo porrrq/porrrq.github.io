@@ -11,53 +11,11 @@
 
 
 :root {
-  color-scheme: dark light;
+  font-size: 18px;
   --width: 720px;
   --font-family-default: verdana, sans-serif;
   --font-family-serif: "EB Garamond", serif;
   --font-family-monospace: "Consolas", monospace;
-
-  /* Solarized CSS */
-  --base03 :  #002b36;
-  --base02 :  #073642;
-  --base01 :  #586e75;
-  --base00 :  #657b83;
-  --base0 :   #839496;
-  --base1 :   #93a1a1;
-  --base2 :   #eee8d5;
-  --base3 :   #fdf6e3;
-
-  --yellow :  #b58900;
-  --orange :  #cb4b16;
-  --red :     #dc322f;
-  --magenta : #d33682;
-  --violet :  #6c71c4;
-  --blue :    #268bd2;
-  --cyan :    #2aa198;
-  --green :   #859900;
-
-  --bg: var(--base3);
-  --bg-hl: var(--base2);
-  --primary-text: var(--base00);
-  --secondary-text: var(--base1);
-  --emphasize-text: var(--base01);
-  --link: var(--blue);
-  --link-visited: var(--violet);
-  --title: var(--magenta);
-  --nav-link: var(--emphasize-text);
-  --h1: var(--cyan);
-  --h2: var(--green);
-  --h3: var(--orange);
-  --hr: var(--yellow);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: var(--base03);
-    --bg-hl: var(--base02);
-    --primary-text: var(--base0);
-    --secondary-text: var(--base01);
-    --emphasize-text: var(--base1);
-  }
 }
 html {
   scrollbar-gutter: stable;
@@ -67,11 +25,10 @@ body {
   padding: 20px;
   max-width: var(--width);
   margin: auto;
-  font-family: var(--font-family-default);
+  font-family: var(--font-family-serif);
   line-height: 1.4;
   text-align: justify;
-  background-color: var(--bg);
-  color: var(--primary-text);
+  background-color: #eee7d7;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,27 +37,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  font-family: var(--font-family-serif);
-  color: var(--h1);
-}
-
-h2 {
-  color: var(--h2);
-}
-
-h3 {
-  color: var(--h3);
-}
-h4, h5, h6 {
-  color: var(--hr);
 }
 
 .webTitle{
   font-size: 1.5em;
   font-style: bold;
   font-weight: 600;
-  color: var(--title) !important;
   text-decoration: none !important;
+  color: navy;
 }
 
 img + em {
@@ -122,22 +66,12 @@ header {
 }
 
 nav a {
-  color: var(--nav-link);
   margin-right: 20px;
   font-weight: 600;
-}
-nav a:hover {
-  text-decoration: none;
+  color: gray;
 }
 a{
-  text-decoration: none;
-  color: var(--link);
-}
-a:hover {
-  text-decoration:underline;
-}
-a:not(.nav-link):visited {
-  color: var(--link-visited);
+  text-decoration: underline;
 }
 
 
@@ -183,6 +117,7 @@ a:not(.nav-link):visited {
 
 time {
   font-family: var(--font-family-monospace);
+  font-size: 0.8rem;
 }
 strong{
   color: var(--emphasize-text) !important;
@@ -203,3 +138,9 @@ blockquote {
 .about-container h4, .about-container h5 {
   text-align: left !important;
 } 
+
+.inline-icon {
+  height: 1em;
+  display: inline-block;
+  margin: 0;
+}
