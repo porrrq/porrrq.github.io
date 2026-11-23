@@ -28,7 +28,8 @@ body {
   font-family: var(--font-family-serif);
   line-height: 1.4;
   text-align: justify;
-  background-color: #eee7d7;
+  color: #37332D;
+  background-color: #F4EFE4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,12 +69,15 @@ header {
 nav a {
   margin-right: 20px;
   font-weight: 600;
-  color: gray;
+  color: #795B3E;
 }
 a{
   text-decoration: underline;
 }
 
+hr {
+  border-color: #DCD3C4;
+}
 
 /* --------------- BLOG TABLE --------------- */
 .blog-posts {
@@ -126,7 +130,7 @@ blockquote {
   font-style: italic;
   padding: 3px 20px;
   margin: 1rem;
-  background-color: var(--bg-hl);
+  background-color: #EEE8DE;
 }
 
 /* ABOUT PAGE */
