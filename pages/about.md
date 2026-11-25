@@ -8,7 +8,7 @@ description: about me
 ## Punyawat Pungphomin
 <div class="about-basic-info-bar">Bangkok, Thailand | <a href="mailto:punyawat.pungphomin@gmail.com">punyawat.pungphomin@gmail.com</a> | <a href="https:/www.linkedin.com/in/punyawatp" target="_blank">LinkedIn</a></div>
 
-+ **Current Status**: **I am currently unemployed**
++ **Current Status**: **I am currently unemployed😭💸**
 
 ## Bio
 I previously worked as a **Data consultant** at <img class="inline-icon" src="https://bluebik.com/wp-content/themes/BBIK/assets/img/design/site-logo-mb-3.svg" alt="BBIK LOGO"> <a href="https://bluebik.com/" target="_blank">Bluebik Gropu PLC.</a> for 1 year and 4 months after graduating with **First-Class Honors in Finance from Chulalongkorn University**. 
