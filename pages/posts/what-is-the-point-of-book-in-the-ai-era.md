@@ -2,7 +2,7 @@
 title: What's the point of reading books in the AI era ?
 description: It's not only about the idea it gives.
 date: 2026-11-27
-tags: [Books, Personal]
+tags: [Books, Personal, Readings]
 ---
 
 ![Performative male: reading while having a matcha](../../public/performative-reading-n-matcha.webp)
